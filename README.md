@@ -1,4 +1,7 @@
 # CV-Simon
+
+**🌐 Voir le CV en ligne : [https://pleymor.github.io/CV-Simon/](https://pleymor.github.io/CV-Simon/)**
+
 ## Overview
 
 This repository contains my professional CV/resume.
