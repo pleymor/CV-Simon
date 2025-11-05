@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Simon Laugueux</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #722f37 0%, #8b3a45 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .header .tagline {
+            font-size: 1.1em;
+            font-style: italic;
+            opacity: 0.95;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            display: inline-block;
+        }
+
+        .contact-info {
+            background: #f8f8f8;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 15px;
+            border-bottom: 3px solid #722f37;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95em;
+        }
+
+        .contact-item::before {
+            content: "●";
+            color: #722f37;
+            font-size: 1.2em;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            padding: 40px;
+        }
+
+        .left-column {
+            padding-right: 20px;
+        }
+
+        .right-column {
+            padding-left: 20px;
+            border-left: 2px solid #e0e0e0;
+        }
+
+        .section {
+            margin-bottom: 35px;
+        }
+
+        .section-title {
+            font-size: 1.5em;
+            color: #722f37;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #722f37;
+            font-weight: 600;
+        }
+
+        .experience-item,
+        .formation-item {
+            margin-bottom: 25px;
+            padding-left: 20px;
+            border-left: 3px solid #e0e0e0;
+            position: relative;
+        }
+
+        .experience-item::before,
+        .formation-item::before {
+            content: "";
+            position: absolute;
+            left: -7px;
+            top: 5px;
+            width: 11px;
+            height: 11px;
+            background: #722f37;
+            border-radius: 50%;
+        }
+
+        .job-title {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #722f37;
+            margin-bottom: 5px;
+        }
+
+        .company {
+            font-weight: 600;
+            color: #555;
+            margin-bottom: 3px;
+        }
+
+        .period {
+            font-size: 0.9em;
+            color: #888;
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+
+        .responsibilities {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .responsibilities li {
+            padding: 4px 0 4px 20px;
+            position: relative;
+            font-size: 0.95em;
+            color: #555;
+        }
+
+        .responsibilities li::before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: #722f37;
+            font-weight: bold;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .skill-item {
+            background: linear-gradient(135deg, #f8f8f8 0%, #f0f0f0 100%);
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-size: 0.95em;
+            border-left: 3px solid #722f37;
+        }
+
+        .interests-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .interest-tag {
+            background: #722f37;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 500;
+        }
+
+        .language-item {
+            margin-bottom: 15px;
+            padding: 12px;
+            background: #f8f8f8;
+            border-radius: 5px;
+            border-left: 3px solid #722f37;
+        }
+
+        .language-name {
+            font-weight: 600;
+            color: #722f37;
+        }
+
+        .language-level {
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        .formation-title {
+            font-size: 1.05em;
+            font-weight: 600;
+            color: #722f37;
+            margin-bottom: 5px;
+        }
+
+        .formation-school {
+            font-weight: 500;
+            color: #555;
+            margin-bottom: 3px;
+        }
+
+        .formation-details {
+            font-size: 0.9em;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+
+            .right-column {
+                border-left: none;
+                border-top: 2px solid #e0e0e0;
+                padding-left: 0;
+                padding-top: 20px;
+            }
+
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .contact-info {
+                flex-direction: column;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .container {
+                box-shadow: none;
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Simon Laugueux</h1>
+            <div class="tagline">Je recherche un emploi dans les vins et spiritueux</div>
+        </div>
+
+        <div class="contact-info">
+            <div class="contact-item">26 rue Jean Jacques Rousseau, 47500 Fumel</div>
+            <div class="contact-item">simonlaugueux@gmail.com</div>
+            <div class="contact-item">07.81.63.15.78</div>
+            <div class="contact-item">Permis B</div>
+        </div>
+
+        <div class="main-content">
+            <div class="left-column">
+                <div class="section">
+                    <h2 class="section-title">Expériences Professionnelles</h2>
+
+                    <div class="experience-item">
+                        <div class="job-title">Assistant administratif et commercial</div>
+                        <div class="company">Château Haut-Monplaisir, Lacapelle-Cabanac</div>
+                        <div class="period">Juillet-Septembre 2024</div>
+                        <ul class="responsibilities">
+                            <li>Accueil de la clientèle particulière au caveau et chai de dégustation</li>
+                            <li>Animation et vente des vins du domaine</li>
+                            <li>Facturation et encaissement sur le logiciel de gestion commerciale, préparation des commandes de clientèle particulière, tenue du caveau</li>
+                            <li>Préparation bons de commande, de livraisons</li>
+                            <li>Préparation des commandes clientèles professionnelles (France et Export) : étiquetage, repiquage étiquettes, mise en carton, palettisation et préparation du bon de livraison</li>
+                        </ul>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="job-title">Ouvrier viticole</div>
+                        <div class="company">Château Haut-Monplaisir, Lacapelle-Cabanac</div>
+                        <div class="period">Juin-Juillet 2024</div>
+                        <ul class="responsibilities">
+                            <li>Relevage, palissage, embouteillage</li>
+                        </ul>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="job-title">Coopérateur</div>
+                        <div class="company">Jouffreau Jean-Pierre, Touzac</div>
+                        <div class="period">Février-Mai 2024</div>
+                        <ul class="responsibilities">
+                            <li>Taille de production, recépage, épamprage, attachage, palissage</li>
+                        </ul>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="job-title">Ouvrier viticole</div>
+                        <div class="company">Château Ponzac, Carnac-Rouffiac</div>
+                        <div class="period">Janvier-Février 2024</div>
+                        <ul class="responsibilities">
+                            <li>Taille de production et taille de formation, mise en bouteille</li>
+                        </ul>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="job-title">Responsable de production</div>
+                        <div class="company">Domaine Belmont, IGP Lot - Goujounac (46)</div>
+                        <div class="period">Août-Octobre 2023</div>
+                        <ul class="responsibilities">
+                            <li>Suivre des protocoles de vinification pour des vins rouges et vins blancs</li>
+                            <li>Gérer et effectuer les travaux de remontage, pigeage, transfert, pressurage, décuvage, soutirage. Tenir un registre de cave complet</li>
+                            <li>Désinfection et nettoyage matériel de vinification et de vendange</li>
+                            <li>Accueil et gestion des équipes de vendanges</li>
+                            <li>Gérer et déterminer les dates de vendanges en fonction des analyses de maturités et de la dégustation</li>
+                            <li>Accueillir le public au domaine pour la dégustation de vins, la vente, préparations de commande, facturation, palettisation, expédition</li>
+                        </ul>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="job-title">Ouvrier viticole polyvalent en stage, Vendangeur</div>
+                        <div class="company">Domaine le Vent des Jours, AOC Cahors, Laurent Marre - Villesèque (46)</div>
+                        <div class="period">Septembre 2022 ; Janvier-Mai 2023</div>
+                        <ul class="responsibilities">
+                            <li>Taille Guyot simple, taille plantier, palissage, épamprage, ébourgeonnage, confusion sexuelle, désherbage</li>
+                            <li>Vente, dégustation, préparation de commande, palettisation, ouillage, soutirage, assemblage, nettoyage du matériel</li>
+                        </ul>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="job-title">Caviste</div>
+                        <div class="company">Cave à vin et spiritueux La Vignery - Saint-Germain-en-Laye (78)</div>
+                        <div class="period">Avril 2021 – Juin 2022</div>
+                        <ul class="responsibilities">
+                            <li>Conseiller un client selon ses goûts, son budget et proposer des accords mets et vins</li>
+                            <li>Contrôle, gestion des stocks et des approvisionnements, réalisation d'inventaires, livraisons, facturations, palettisation</li>
+                            <li>Gestion de caisse, encaissement, devis mariage et cérémonies, cadeaux d'entreprises personnalisés</li>
+                            <li>Organisations et animations d'ateliers de dégustations de vins, de spiritueux et ses mets associés</li>
+                        </ul>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="job-title">Animateur commercial pour la Foire au vin</div>
+                        <div class="company">Société d'animation Pauraux - Saint-André-de-l'Eure et Evreux (27)</div>
+                        <div class="period">Septembre 2019 ; Septembre-Décembre 2020 ; Avril 2021</div>
+                        <ul class="responsibilities">
+                            <li>Présenter les qualités, les performances, les aspects techniques du produit aux clients</li>
+                            <li>Proposer des dégustations, des accords mets et vins et les commenter</li>
+                        </ul>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="job-title">Volontaire en service civique</div>
+                        <div class="company">Coordination Eau Île-de-France - Paris</div>
+                        <div class="period">Janvier-Août 2018</div>
+                        <ul class="responsibilities">
+                            <li>Actions de sensibilisation à la préservation de l'eau</li>
+                            <li>Animation d'ateliers "Do It Yourself"</li>
+                        </ul>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="job-title">Stage d'Hydrobiologie continentale</div>
+                        <div class="company">Université d'Avignon et des Pays de Vaucluse (84)</div>
+                        <div class="period">Mai-Juin 2017</div>
+                        <ul class="responsibilities">
+                            <li>Régime alimentaire des larves d'Insectes (Ephémères) des rivières et lacs de Provence calcaire</li>
+                        </ul>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="job-title">Voyage linguistique - Emplois Divers</div>
+                        <div class="company">Auckland, Nouvelle-Zélande</div>
+                        <div class="period">Janvier-Juillet 2013</div>
+                        <ul class="responsibilities">
+                            <li>Service, Garage, Démarchage</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2 class="section-title">Formations</h2>
+
+                    <div class="formation-item">
+                        <div class="formation-title">CQP Ouvrier qualifié de l'exploitation viticole</div>
+                        <div class="formation-school">Lycée agricole Le Montat (46)</div>
+                        <div class="period">Décembre 2022 – Mai 2023</div>
+                        <div class="formation-details">
+                            Taille douce Guyot Poussard, gobelet et cordon de royat, ensemble travaux verts, conduite de tracteur, attelage outils, utilisation gyrobroyeur, broyeur à sarments, outils interceps, atomiseur.
+                        </div>
+                    </div>
+
+                    <div class="formation-item">
+                        <div class="formation-title">Licence de Sciences de la Vie et de la Terre</div>
+                        <div class="formation-school">Université d'Avignon et des Pays de Vaucluse</div>
+                        <div class="period">2014-2017</div>
+                        <div class="formation-details">
+                            Parcours Biologie Santé et Environnement, spécialité Environnement.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="right-column">
+                <div class="section">
+                    <h2 class="section-title">Compétences</h2>
+                    <div class="skills-list">
+                        <div class="skill-item">Passionné par le travail d'un sol vivant, la typicité des cépages, l'influence des terroirs</div>
+                        <div class="skill-item">Maîtrise des processus de fermentations, d'oxydo-réduction, biologie végétale et pédologie</div>
+                        <div class="skill-item">Expertise en vinification et élevage (fûts, foudre, jarre, béton)</div>
+                        <div class="skill-item">Polyvalence et capacité d'adaptation</div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2 class="section-title">Logiciels</h2>
+                    <div class="skills-list">
+                        <div class="skill-item">Vitisifot</div>
+                        <div class="skill-item">Quercy PHM transport</div>
+                        <div class="skill-item">NiceLabel</div>
+                        <div class="skill-item">Word, Excel, PowerPoint</div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2 class="section-title">Langues</h2>
+                    <div class="language-item">
+                        <div class="language-name">Anglais</div>
+                        <div class="language-level">Courant (CECRL : B2)</div>
+                    </div>
+                    <div class="language-item">
+                        <div class="language-name">Espagnol</div>
+                        <div class="language-level">Scolaire (CECRL : A2)</div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2 class="section-title">Centres d'intérêt</h2>
+                    <div class="interests-list">
+                        <span class="interest-tag">Œnologie</span>
+                        <span class="interest-tag">Biologie</span>
+                        <span class="interest-tag">Gastronomie</span>
+                        <span class="interest-tag">Biomimétisme</span>
+                        <span class="interest-tag">Histoire</span>
+                        <span class="interest-tag">Culture</span>
+                        <span class="interest-tag">Musique</span>
+                        <span class="interest-tag">Sport d'équipe</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
