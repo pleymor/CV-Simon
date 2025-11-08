@@ -33,6 +33,7 @@
             color: white;
             padding: 40px;
             text-align: center;
+            position: relative;
         }
 
         .header h1 {
@@ -58,9 +59,39 @@
             padding: 20px 40px;
             display: flex;
             justify-content: space-around;
+            align-items: center;
             flex-wrap: wrap;
             gap: 15px;
             border-bottom: 3px solid #722f37;
+        }
+
+        .qr-code-container {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .qr-code-container img {
+            width: 100px;
+            height: 100px;
+            border: 3px solid white;
+            border-radius: 8px;
+            background: white;
+            padding: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .qr-code-label {
+            font-size: 0.75em;
+            color: white;
+            font-weight: 600;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 4px 10px;
+            border-radius: 10px;
         }
 
         .contact-item {
@@ -250,6 +281,16 @@
             .contact-info {
                 flex-direction: column;
             }
+
+            .qr-code-container {
+                top: 10px;
+                right: 10px;
+            }
+
+            .qr-code-container img {
+                width: 70px;
+                height: 70px;
+            }
         }
 
         @media print {
@@ -262,12 +303,20 @@
                 box-shadow: none;
                 max-width: 100%;
             }
+
+            .qr-code-container {
+                display: flex !important;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
+            <div class="qr-code-container">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://pleymor.github.io/CV-Simon/" alt="QR Code CV en ligne">
+                <span class="qr-code-label">CV en ligne</span>
+            </div>
             <h1>Simon Laugueux</h1>
             <div class="tagline">Je recherche un emploi dans les vins et spiritueux</div>
         </div>
