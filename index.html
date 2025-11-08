@@ -102,9 +102,24 @@
         }
 
         .contact-item::before {
-            content: "●";
             color: #722f37;
             font-size: 1.2em;
+        }
+
+        .contact-item.address::before {
+            content: "⚲";
+        }
+
+        .contact-item.email::before {
+            content: "✉";
+        }
+
+        .contact-item.phone::before {
+            content: "☎";
+        }
+
+        .contact-item.license::before {
+            content: "⛟";
         }
 
         .main-content {
@@ -322,10 +337,10 @@
         </div>
 
         <div class="contact-info">
-            <div class="contact-item">26 rue Jean Jacques Rousseau, 47500 Fumel</div>
-            <div class="contact-item">simonlaugueux@gmail.com</div>
-            <div class="contact-item">07.81.63.15.78</div>
-            <div class="contact-item">Permis B</div>
+            <div class="contact-item address">26 rue Jean Jacques Rousseau, 47500 Fumel</div>
+            <div class="contact-item email">simonlaugueux@gmail.com</div>
+            <div class="contact-item phone">07 81 63 15 78</div>
+            <div class="contact-item license">Permis B</div>
         </div>
 
         <div class="main-content">
